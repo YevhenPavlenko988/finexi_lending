@@ -1256,8 +1256,8 @@ ${data.message ? `\nСообщение: ${data.message}` : ''}
             // Log the message being sent
             console.log('Sending message to Slack:', slackMessage);
             
-            // Try alternative method with no-cors mode
-            const webhookUrl = 'https://hooks.slack.com/services/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';
+            // Use webhook URL from config file
+            const webhookUrl = SLACK_WEBHOOK_URL;
             
             // Send to Slack webhook
             fetch(webhookUrl, {
