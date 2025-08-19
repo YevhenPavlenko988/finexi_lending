@@ -51,7 +51,7 @@ const i18n = {
                     desc: 'Полная история взаимодействий с каждым клиентом'
                 },
                 {
-                    title: 'Интеграция tronscan, sumsab (скоро)',
+                    title: 'Интеграция Tronscan, Sumsub (скоро)',
                     desc: 'Автоматическая синхронизация с внешними сервисами'
                 },
                 {
@@ -253,7 +253,7 @@ const i18n = {
                     desc: 'Complete interaction history with each client'
                 },
                 {
-                    title: 'Tronscan, Sumsab integration (coming soon)',
+                    title: 'Tronscan, Sumsub integration (coming soon)',
                     desc: 'Automatic synchronization with external services'
                 },
                 {
@@ -455,7 +455,7 @@ const i18n = {
                     desc: 'Повна історія взаємодій з кожним клієнтом'
                 },
                 {
-                    title: 'Інтеграція tronscan, sumsab (незабаром)',
+                    title: 'Інтеграція Tronscan, Sumsub (незабаром)',
                     desc: 'Автоматична синхронізація з зовнішніми сервісами'
                 },
                 {
@@ -657,7 +657,7 @@ const i18n = {
                     desc: 'Pełna historia interakcji z każdym klientem'
                 },
                 {
-                    title: 'Integracja tronscan, sumsab (wkrótce)',
+                    title: 'Integracja Tronscan, Sumsub (wkrótce)',
                     desc: 'Automatyczna synchronizacja z zewnętrznymi usługami'
                 },
                 {
