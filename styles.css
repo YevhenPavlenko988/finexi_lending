@@ -124,7 +124,15 @@ h3 { font-size: 1.5rem; }
 }
 
 .nav-brand .logo {
-    height: 40px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.nav-brand .logo:hover {
+    color: var(--primary-light);
 }
 
 .nav-menu {
@@ -142,6 +150,36 @@ h3 { font-size: 1.5rem; }
 
 .nav-link:hover {
     color: var(--primary-color);
+}
+
+/* Language Selector */
+.language-selector {
+    display: flex;
+    gap: 4px;
+    margin: 0 1rem;
+}
+
+.lang-btn {
+    background: none;
+    border: 1px solid var(--gray-light);
+    color: var(--gray-medium);
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.lang-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.lang-btn.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
 }
 
 .hamburger {
@@ -221,6 +259,34 @@ h3 { font-size: 1.5rem; }
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.header-controls {
+    display: flex;
+    gap: 6px;
+}
+
+.header-controls .control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.header-controls .control.red {
+    background: #ff5f56;
+}
+
+.header-controls .control.yellow {
+    background: #ffbd2e;
+}
+
+.header-controls .control.green {
+    background: #27ca3f;
+}
+
+.header-title {
+    font-weight: 600;
+    color: var(--white);
+}
+
 .dashboard-dots {
     display: flex;
     gap: 6px;
@@ -240,6 +306,12 @@ h3 { font-size: 1.5rem; }
 
 .dashboard-content {
     padding: 2rem 1.5rem;
+}
+
+.stat-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
 }
 
 .stats-grid {
@@ -487,7 +559,7 @@ h3 { font-size: 1.5rem; }
 /* Trust Section */
 .trust {
     padding: 6rem 0;
-    background: var(--white);
+    background: var(--gray-light);
 }
 
 .screenshots {
@@ -498,36 +570,52 @@ h3 { font-size: 1.5rem; }
 }
 
 .screenshot {
-    position: relative;
+    background: var(--white);
+    padding: 3rem 2rem;
     border-radius: var(--border-radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    position: relative;
     transition: var(--transition);
 }
 
 .screenshot:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--shadow-lg);
 }
 
-.screenshot img {
-    width: 100%;
-    height: auto;
-    display: block;
+.screenshot-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-secondary);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 auto 2rem;
 }
 
 .screenshot-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-    color: var(--white);
-    padding: 2rem;
+    position: static;
+    background: none;
+    color: inherit;
+    padding: 0;
 }
 
 .screenshot-overlay h4 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.screenshot-overlay p {
+    color: var(--gray-medium);
+    line-height: 1.6;
+    margin: 0;
 }
 
 /* FAQ Section */
@@ -624,7 +712,9 @@ h3 { font-size: 1.5rem; }
 }
 
 .footer-logo {
-    height: 40px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
     margin-bottom: 1rem;
 }
 
@@ -701,6 +791,11 @@ h3 { font-size: 1.5rem; }
         display: flex;
     }
     
+    .language-selector {
+        margin: 1rem 0;
+        justify-content: center;
+    }
+    
     .hero-title {
         font-size: 2.5rem;
     }
@@ -711,6 +806,10 @@ h3 { font-size: 1.5rem; }
     
     .features-grid, .steps, .screenshots {
         grid-template-columns: 1fr;
+    }
+    
+    .screenshot {
+        padding: 2rem 1.5rem;
     }
     
     .hero-buttons {
@@ -762,6 +861,15 @@ h3 { font-size: 1.5rem; }
     .problems, .solutions {
         padding: 1.5rem;
     }
+    
+    .screenshots {
+        gap: 1.5rem;
+        margin-top: 3rem;
+    }
+    
+    .screenshot {
+        padding: 2rem 1rem;
+    }
 }
 
 /* Smooth scroll */
@@ -799,3 +907,4 @@ html {
 .mt-2 { margin-top: 1rem; }
 .mt-3 { margin-top: 1.5rem; }
 .mt-4 { margin-top: 2rem; }
+
