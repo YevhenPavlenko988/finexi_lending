@@ -918,6 +918,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
         
         question.addEventListener('click', () => {
             const isActive = item.classList.contains('active');
@@ -925,11 +926,19 @@ document.addEventListener('DOMContentLoaded', function() {
             // Close all FAQ items
             faqItems.forEach(faq => {
                 faq.classList.remove('active');
+                const faqAnswer = faq.querySelector('.faq-answer');
+                if (faqAnswer) {
+                    faqAnswer.style.maxHeight = '0';
+                }
             });
             
             // Open clicked item if it wasn't active
             if (!isActive) {
                 item.classList.add('active');
+                if (answer) {
+                    // Calculate the actual height needed
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
             }
         });
     });
