@@ -864,8 +864,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', function() {
+            const isActive = hamburger.classList.contains('active');
+            
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
+            
+            // Toggle body scroll lock
+            if (isActive) {
+                document.body.classList.remove('menu-open');
+            } else {
+                document.body.classList.add('menu-open');
+            }
         });
         
         // Close menu when clicking on a link
@@ -873,7 +882,17 @@ document.addEventListener('DOMContentLoaded', function() {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
             });
+        });
+        
+        // Close menu when clicking outside
+        navMenu.addEventListener('click', function(e) {
+            if (e.target === navMenu) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
         });
     }
     

@@ -126,7 +126,7 @@ h3 { font-size: 1.5rem; }
 .nav-brand .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--white);
+    color: var(--primary-color);
     text-decoration: none;
     transition: var(--transition);
 }
@@ -206,6 +206,7 @@ h3 { font-size: 1.5rem; }
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: var(--white);
     overflow: hidden;
+    padding-top: 80px; /* Компенсація для фіксованого navbar */
 }
 
 .hero-content {
@@ -784,11 +785,56 @@ h3 { font-size: 1.5rem; }
 
 @media (max-width: 768px) {
     .nav-menu {
-        display: none;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: right 0.3s ease;
+        z-index: 999;
+        padding: 2rem;
+        box-sizing: border-box;
+    }
+    
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    .nav-link {
+        font-size: 1.25rem;
+        color: var(--dark-color);
+        padding: 0.75rem 1.5rem;
+        border-radius: var(--border-radius);
+        transition: var(--transition);
+    }
+    
+    .nav-link:hover {
+        background: var(--gray-light);
+        color: var(--primary-color);
     }
     
     .hamburger {
         display: flex;
+        z-index: 1001;
+        position: relative;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
     }
     
     .language-selector {
@@ -796,8 +842,35 @@ h3 { font-size: 1.5rem; }
         justify-content: center;
     }
     
+    .hero {
+        padding-top: 90px; /* Збільшений відступ для мобільних */
+    }
+    
     .hero-title {
         font-size: 2.5rem;
+    }
+    
+    /* Центрування всіх заголовків на мобільних */
+    h1, h2, h3, h4, h5, h6 {
+        text-align: center;
+    }
+    
+    .section-title {
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .section-header {
+        text-align: center;
+    }
+    
+    /* Центрування заголовків в проблемах та рішеннях */
+    .problem-item h3,
+    .solution-item h3,
+    .feature-card h3,
+    .step h3,
+    .faq-question h3 {
+        text-align: center;
     }
     
     h2 {
@@ -825,6 +898,18 @@ h3 { font-size: 1.5rem; }
     
     .problems, .solutions {
         padding: 2rem;
+        text-align: center;
+    }
+    
+    .problem-item, .solution-item {
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .problem-item i, .solution-item i {
+        margin-bottom: 1rem;
+        margin-top: 0;
     }
     
     .step {
@@ -833,6 +918,11 @@ h3 { font-size: 1.5rem; }
     
     .faq-question {
         padding: 1rem 1.5rem;
+        text-align: center;
+    }
+    
+    .faq-question h3 {
+        text-align: center;
     }
     
     .footer-content {
@@ -846,12 +936,32 @@ h3 { font-size: 1.5rem; }
         padding: 0 15px;
     }
     
+    .hero {
+        padding-top: 100px; /* Ще більший відступ для дуже маленьких екранів */
+    }
+    
     .hero-title {
         font-size: 2rem;
     }
     
     .hero-subtitle {
         font-size: 1.125rem;
+    }
+    
+    /* Додаткове центрування для дуже маленьких екранів */
+    h1, h2, h3, h4, h5, h6 {
+        text-align: center;
+    }
+    
+    .section-title {
+        text-align: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .section-title i {
+        margin-bottom: 0.5rem;
     }
     
     .feature-card, .step {
@@ -891,6 +1001,11 @@ html {
 
 .fade-in-up {
     animation: fadeInUp 0.6s ease-out;
+}
+
+/* Mobile menu body lock */
+body.menu-open {
+    overflow: hidden;
 }
 
 /* Utility classes */
